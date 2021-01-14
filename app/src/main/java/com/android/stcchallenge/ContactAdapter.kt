@@ -61,9 +61,9 @@ class ContactAdapter(val nav: (User) -> Unit): ListAdapter<User, ContactAdapter.
             oldItem == newItem
     }
 
-    fun textToImage(party: String) = when(party) {
-        "Democrat" -> R.drawable.ic
-        else -> R.drawable.ic_party_d
-    }
+//    fun textToImage(party: String) = when(party) {
+//        "Democrat" -> R.drawable.ic_party_r
+//        else -> R.drawable.ic_party_d
+//    }
 
 }
