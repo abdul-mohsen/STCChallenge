@@ -1,4 +1,4 @@
-package com.android.stcchallenge
+package com.android.stcchallenge.ui.controller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

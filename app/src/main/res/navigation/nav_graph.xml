@@ -5,6 +5,18 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.android.stcchallenge.ListFragment"
-        android:label="ListFragment" />
+        android:name="com.android.stcchallenge.ui.controller.ContactListFragment"
+        android:label="ListFragment" >
+        <action
+            android:id="@+id/action_listFragment_to_contactDetailsFragment"
+            app:destination="@id/contactDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactDetailsFragment"
+        android:name="com.android.stcchallenge.ui.controller.ContactDetailsFragment"
+        android:label="ContactDetailsFragment" >
+        <argument
+            android:name="user"
+            app:argType="com.android.stcchallenge.model.User" />
+    </fragment>
 </navigation>

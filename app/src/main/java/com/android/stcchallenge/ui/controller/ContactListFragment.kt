@@ -1,4 +1,4 @@
-package com.android.stcchallenge
+package com.android.stcchallenge.ui.controller
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,19 +7,22 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.coroutineScope
-import com.android.stcchallenge.databinding.ListFragmentBinding
-import com.android.stcchallenge.viewmodel.ListViewModel
+import androidx.navigation.fragment.findNavController
+import com.android.stcchallenge.ContactAdapter
+import com.android.stcchallenge.R
+import com.android.stcchallenge.databinding.ContactListFragmentBinding
+import com.android.stcchallenge.ui.viewmodel.ListViewModel
 import kotlinx.coroutines.flow.collect
 
-class ListFragment: Fragment() {
-    private var _binding: ListFragmentBinding? = null
+class ContactListFragment: Fragment() {
+    private var _binding: ContactListFragmentBinding? = null
     private val binding get() = _binding!!
-    private lateinit var myAdapter: MyListAdapter
+    private lateinit var myAdapter: ContactAdapter
     private val listViewModel: ListViewModel by viewModels ()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        listViewModel.jsonConverter(requireActivity())
+//        listViewModel.jsonConverter(requireActivity())
     }
 
     override fun onCreateView(
@@ -27,9 +30,14 @@ class ListFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = ListFragmentBinding.inflate(inflater, container, false)
+        _binding = ContactListFragmentBinding.inflate(inflater, container, false)
 
-        myAdapter = MyListAdapter()
+        myAdapter = ContactAdapter() { user ->
+            findNavController().navigate(
+                ContactListFragmentDirections.actionListFragmentToContactDetailsFragment(user)
+            )
+
+        }
         binding.grid.adapter = myAdapter
 
         observeUserList()

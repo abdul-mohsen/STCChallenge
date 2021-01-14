@@ -1,6 +1,9 @@
 package com.android.stcchallenge.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class User(
     val caucus: String? = null,
     val congress_numbers: List<Int> = listOf(),
@@ -24,4 +27,4 @@ data class User(
     val title: String,
     val title_long: String,
     val website: String
-)
+) : Parcelable

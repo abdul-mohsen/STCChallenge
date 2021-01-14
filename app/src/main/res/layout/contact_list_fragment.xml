@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:listitem="@layout/view_holder"
+    tools:listitem="@layout/contact_view"
     xmlns:tools="http://schemas.android.com/tools">
 
 </androidx.recyclerview.widget.RecyclerView>
